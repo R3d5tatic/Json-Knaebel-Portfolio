@@ -30,7 +30,7 @@ export const Navbar: React.FC = () => {
               J.KNAEBEL
             </span>
             <span className="text-[10px] uppercase tracking-[0.2em] text-accent-muted">
-              Sys.Admin
+              Veteran | Electrical Engineer
             </span>
           </div>
         </a>

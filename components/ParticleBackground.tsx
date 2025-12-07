@@ -32,53 +32,53 @@ export const ParticleBackground = () => {
                 events: {
                     onHover: {
                         enable: true,
-                        mode: "grab", // Lines extend to cursor on hover
+                        mode: "grab",
                     },
                 },
                 modes: {
                     grab: {
-                        distance: 140, // How far lines extend
+                        distance: 180, // Increased interaction range
                         links: {
-                            opacity: 0.5, // Link opacity on hover
+                            opacity: 0.8, // Stronger links on hover
                         },
                     },
                 },
             },
             particles: {
                 color: {
-                    value: "#00d4ff", // Particle color (electric cyan)
+                    value: "#6ee7ff", // Brighter Cyan
                 },
                 links: {
-                    color: "#00d4ff", // Connection line color
-                    distance: 150, // Max distance for connections
+                    color: "#6ee7ff",
+                    distance: 150,
                     enable: true,
-                    opacity: 0.15, // Link opacity
+                    opacity: 0.3, // More visible connections
                     width: 1,
                 },
                 move: {
                     direction: "none",
                     enable: true,
                     outModes: {
-                        default: "bounce", // Particles bounce off edges
+                        default: "bounce",
                     },
                     random: false,
-                    speed: 0.5, // Movement speed
+                    speed: 1.5, // Faster movement for "sparky" feel
                     straight: false,
                 },
                 number: {
                     density: {
                         enable: true,
                     },
-                    value: 60, // Number of particles
+                    value: 90, // More particles
                 },
                 opacity: {
-                    value: 0.3, // Particle opacity
+                    value: 0.6, // Higher base opacity
                 },
                 shape: {
-                    type: "circle", // Particle shape
+                    type: "circle",
                 },
                 size: {
-                    value: { min: 1, max: 2 }, // Particle size range
+                    value: { min: 1, max: 3 },
                 },
             },
             detectRetina: true, // Better rendering on retina displays
