@@ -10,7 +10,7 @@ export const Projects: React.FC = () => {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
   return (
-    <section id="projects" className="py-24 relative">
+    <section id="projects" className="py-24 relative bg-bg-primary/80 backdrop-blur-md">
       <div className="max-w-7xl mx-auto px-6">
         <SectionTitle title="Operational Assets" subtitle="Projects" number="03" />
 

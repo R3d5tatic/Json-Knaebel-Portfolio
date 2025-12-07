@@ -5,7 +5,7 @@ import { Send, MapPin, Mail, Phone, Linkedin } from 'lucide-react';
 
 export const Contact: React.FC = () => {
   return (
-    <section id="contact" className="py-24 bg-bg-secondary/20 border-t border-accent-muted/20">
+    <section id="contact" className="py-24 bg-bg-primary/80 backdrop-blur-md border-t border-accent-muted/20">
       <div className="max-w-7xl mx-auto px-6">
         <SectionTitle title="Establish Comms" subtitle="Contact" number="04" />
 

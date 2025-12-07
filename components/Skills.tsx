@@ -5,7 +5,7 @@ import { SKILLS } from '../constants';
 
 export const Skills: React.FC = () => {
   return (
-    <section id="skills" className="py-24 relative">
+    <section id="skills" className="py-24 relative bg-bg-primary/80 backdrop-blur-md">
       <div className="max-w-7xl mx-auto px-6">
         <SectionTitle title="Technical Protocols" subtitle="Capabilities" number="01" />
 
