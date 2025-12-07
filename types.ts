@@ -5,6 +5,7 @@ export interface Project {
   description: string;
   technologies: string[];
   imageUrl: string;
+  images?: string[];
   status: 'completed' | 'in-progress' | 'prototype';
 }
 

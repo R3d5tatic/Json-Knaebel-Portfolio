@@ -1,128 +1,140 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Jason Knaebel | Electrical Engineer</title>
-    <meta name="description" content="Portfolio of Jason Knaebel, Electrical Engineer" />
-    
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&display=swap" rel="stylesheet">
 
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            colors: {
-              bg: {
-                primary: "#0a0a0f",
-                secondary: "#12141a",
-                tertiary: "#1a1d24",
-                elevated: "#22262f",
-              },
-              accent: {
-                cyan: "#00d4ff",
-                green: "#00ff88",
-                gold: "#d4a574",
-                red: "#ff4444",
-                muted: "#4a5568",
-              },
-              text: {
-                primary: "#e8e8e8",
-                secondary: "#888899",
-                muted: "#555566",
-                inverse: "#0a0a0f",
-              },
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Jason Knaebel | Electrical Engineer</title>
+  <meta name="description" content="Portfolio of Jason Knaebel, Electrical Engineer" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&display=swap"
+    rel="stylesheet">
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            bg: {
+              primary: "#0a0a0f",
+              secondary: "#12141a",
+              tertiary: "#1a1d24",
+              elevated: "#22262f",
             },
-            fontFamily: {
-              mono: ["JetBrains Mono", "monospace"],
+            accent: {
+              cyan: "#00d4ff",
+              green: "#00ff88",
+              gold: "#d4a574",
+              red: "#ff4444",
+              muted: "#4a5568",
             },
-            boxShadow: {
-              "glow-cyan": "0 0 20px rgba(0, 212, 255, 0.4)",
-              "glow-cyan-lg": "0 0 40px rgba(0, 212, 255, 0.2), inset 0 0 20px rgba(0, 212, 255, 0.05)",
-              "glow-green": "0 0 20px rgba(0, 255, 136, 0.4)",
-              "glow-gold": "0 0 20px rgba(212, 165, 116, 0.4)",
+            text: {
+              primary: "#e8e8e8",
+              secondary: "#888899",
+              muted: "#555566",
+              inverse: "#0a0a0f",
             },
-            animation: {
-              "blink": "blink 1s step-end infinite",
-              "glitch": "glitch 0.3s ease-in-out infinite",
-              "pulse-glow": "glow-pulse 2s ease-in-out infinite",
-              "scanline": "scanline 8s linear infinite",
-              "fade-in-up": "fade-in-up 0.5s ease-out forwards",
+          },
+          fontFamily: {
+            mono: ["JetBrains Mono", "monospace"],
+          },
+          boxShadow: {
+            "glow-cyan": "0 0 20px rgba(0, 212, 255, 0.4)",
+            "glow-cyan-lg": "0 0 40px rgba(0, 212, 255, 0.2), inset 0 0 20px rgba(0, 212, 255, 0.05)",
+            "glow-green": "0 0 20px rgba(0, 255, 136, 0.4)",
+            "glow-gold": "0 0 20px rgba(212, 165, 116, 0.4)",
+          },
+          animation: {
+            "blink": "blink 1s step-end infinite",
+            "glitch": "glitch 0.3s ease-in-out infinite",
+            "pulse-glow": "glow-pulse 2s ease-in-out infinite",
+            "scanline": "scanline 8s linear infinite",
+            "fade-in-up": "fade-in-up 0.5s ease-out forwards",
+          },
+          keyframes: {
+            blink: {
+              "0%, 50%": { opacity: "1" },
+              "51%, 100%": { opacity: "0" },
             },
-            keyframes: {
-              blink: {
-                "0%, 50%": { opacity: "1" },
-                "51%, 100%": { opacity: "0" },
-              },
-              "glow-pulse": {
-                "0%, 100%": { boxShadow: "0 0 20px rgba(0, 212, 255, 0.4)" },
-                "50%": { boxShadow: "0 0 30px rgba(0, 212, 255, 0.6)" },
-              },
-              scanline: {
-                "0%": { transform: "translateY(-100%)" },
-                "100%": { transform: "translateY(100vh)" },
-              },
-              "fade-in-up": {
-                "from": { opacity: "0", transform: "translateY(20px)" },
-                "to": { opacity: "1", transform: "translateY(0)" },
-              },
-              glitch: {
-                "0%, 100%": { transform: "translate(0)" },
-                "20%": { transform: "translate(-2px, 2px)" },
-                "40%": { transform: "translate(2px, -2px)" },
-                "60%": { transform: "translate(-1px, 1px)" },
-              }
+            "glow-pulse": {
+              "0%, 100%": { boxShadow: "0 0 20px rgba(0, 212, 255, 0.4)" },
+              "50%": { boxShadow: "0 0 30px rgba(0, 212, 255, 0.6)" },
             },
-            backgroundImage: {
-              'circuit-grid': "linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px)",
+            scanline: {
+              "0%": { transform: "translateY(-100%)" },
+              "100%": { transform: "translateY(100vh)" },
+            },
+            "fade-in-up": {
+              "from": { opacity: "0", transform: "translateY(20px)" },
+              "to": { opacity: "1", transform: "translateY(0)" },
+            },
+            glitch: {
+              "0%, 100%": { transform: "translate(0)" },
+              "20%": { transform: "translate(-2px, 2px)" },
+              "40%": { transform: "translate(2px, -2px)" },
+              "60%": { transform: "translate(-1px, 1px)" },
             }
           },
+          backgroundImage: {
+            'circuit-grid': "linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px)",
+          }
         },
-      }
-    </script>
-    <style>
-      /* Custom utility for scanlines since complex gradients are hard in tailwind config object */
-      .scanlines::after {
-        content: "";
-        position: fixed;
-        inset: 0;
-        background: repeating-linear-gradient(
-          0deg,
+      },
+    }
+  </script>
+  <style>
+    /* Custom utility for scanlines since complex gradients are hard in tailwind config object */
+    .scanlines::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background: repeating-linear-gradient(0deg,
           transparent,
           transparent 2px,
           rgba(0, 0, 0, 0.2) 2px,
-          rgba(0, 0, 0, 0.2) 4px
-        );
-        pointer-events: none;
-        z-index: 40;
-        opacity: 0.4;
-      }
-      
-      /* Smooth scrolling */
-      html {
-        scroll-behavior: smooth;
-      }
+          rgba(0, 0, 0, 0.2) 4px);
+      pointer-events: none;
+      z-index: 40;
+      opacity: 0.4;
+    }
 
-      /* Scrollbar Styling */
-      ::-webkit-scrollbar {
-        width: 8px;
-      }
-      ::-webkit-scrollbar-track {
-        background: #0a0a0f; 
-      }
-      ::-webkit-scrollbar-thumb {
-        background: #1a1d24; 
-        border: 1px solid rgba(0, 212, 255, 0.3);
-      }
-      ::-webkit-scrollbar-thumb:hover {
-        background: #00d4ff; 
-      }
-    </style>
+    /* Smooth scrolling */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Scrollbar Styling */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #0a0a0f;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #1a1d24;
+      border: 1px solid rgba(0, 212, 255, 0.3);
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: #00d4ff;
+    }
+
+    /* CSS Dot Grid */
+    .circuit-dots {
+      background-image: radial-gradient(circle,
+          #00d4ff 1px,
+          transparent 1px);
+      background-size: 40px 40px;
+      opacity: 0.15;
+    }
+  </style>
   <script type="importmap">
 {
   "imports": {
@@ -134,7 +146,10 @@
 }
 </script>
 </head>
-  <body class="bg-bg-primary text-text-primary antialiased selection:bg-accent-cyan selection:text-text-inverse">
-    <div id="root"></div>
-  </body>
+
+<body class="bg-bg-primary text-text-primary antialiased selection:bg-accent-cyan selection:text-text-inverse">
+  <div id="root"></div>
+</body>
+<script type="module" src="index.tsx"></script>
+
 </html>

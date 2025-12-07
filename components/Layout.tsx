@@ -1,13 +1,24 @@
 import React from 'react';
 import { Navbar } from './Navbar';
 import { Footer } from './Footer';
+import { ParticleBackground } from './ParticleBackground';
+import { ElectricFlow } from './ElectricFlow';
 
 export const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   return (
     <div className="min-h-screen relative flex flex-col overflow-x-hidden scanlines">
       {/* Background Grid Layer */}
       <div className="fixed inset-0 bg-circuit-grid bg-[size:40px_40px] pointer-events-none z-0 opacity-20" />
-      
+
+      {/* Background Dot Layer */}
+      <div className="circuit-dots fixed inset-0 pointer-events-none z-0"></div>
+
+      {/* Electric Flow Effect */}
+      <ElectricFlow />
+
+      {/* Particle Background */}
+      <ParticleBackground />
+
       {/* Background Radial Gradient */}
       <div className="fixed inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,#0a0a0f_100%)] pointer-events-none z-0" />
 
