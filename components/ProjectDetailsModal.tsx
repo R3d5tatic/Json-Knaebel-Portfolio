@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import { Project } from '../types';
 import { X, ChevronLeft, ChevronRight } from 'lucide-react';
 
@@ -16,6 +17,8 @@ export const ProjectDetailsModal: React.FC<ProjectDetailsModalProps> = ({ projec
             document.body.style.overflow = 'hidden';
         } else {
             document.body.style.overflow = 'unset';
+            // Scroll hack for some mobile browsers to ensure UI repaints correctly
+            window.dispatchEvent(new Event('resize'));
         }
         return () => {
             document.body.style.overflow = 'unset';
@@ -34,8 +37,8 @@ export const ProjectDetailsModal: React.FC<ProjectDetailsModalProps> = ({ projec
         setCurrentImageIndex((prev) => (prev - 1 + images.length) % images.length);
     };
 
-    return (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 lg:p-8">
+    return createPortal(
+        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 lg:p-8">
             <div
                 className="absolute inset-0 bg-bg-primary/90 backdrop-blur-md"
                 onClick={onClose}
@@ -43,12 +46,12 @@ export const ProjectDetailsModal: React.FC<ProjectDetailsModalProps> = ({ projec
 
             <div className="relative w-full max-w-6xl h-full max-h-[90vh] bg-bg-secondary border border-accent-cyan/20 rounded-sm shadow-[0_0_50px_rgba(0,0,0,0.5)] flex flex-col overflow-hidden animate-fade-in-up">
                 {/* Header */}
-                <div className="flex justify-between items-center p-6 border-b border-accent-muted/20 bg-bg-tertiary/50">
+                <div className="flex justify-between items-center p-4 lg:p-6 border-b border-accent-muted/20 bg-bg-tertiary/50">
                     <div>
-                        <div className="text-xs text-accent-cyan font-mono uppercase tracking-widest mb-1">
+                        <div className="text-[10px] lg:text-xs text-accent-cyan font-mono uppercase tracking-widest mb-1">
                             Project // {project.category}
                         </div>
-                        <h2 className="text-2xl font-bold text-text-primary">{project.title}</h2>
+                        <h2 className="text-xl lg:text-2xl font-bold text-text-primary line-clamp-1">{project.title}</h2>
                     </div>
                     <button
                         onClick={onClose}
@@ -60,7 +63,7 @@ export const ProjectDetailsModal: React.FC<ProjectDetailsModalProps> = ({ projec
 
                 <div className="flex-1 overflow-y-auto lg:overflow-hidden grid grid-cols-1 lg:grid-cols-12">
                     {/* Image Gallery */}
-                    <div className="lg:col-span-8 bg-black relative min-h-[400px] lg:h-full flex items-center justify-center group">
+                    <div className="lg:col-span-8 bg-black relative min-h-[250px] lg:h-full flex items-center justify-center group">
                         <img
                             src={images[currentImageIndex]}
                             alt={`${project.title} view ${currentImageIndex + 1}`}
@@ -72,13 +75,13 @@ export const ProjectDetailsModal: React.FC<ProjectDetailsModalProps> = ({ projec
                             <>
                                 <button
                                     onClick={(e) => { e.stopPropagation(); prevImage(); }}
-                                    className="absolute left-4 p-2 bg-black/50 border border-white/10 hover:border-accent-cyan text-white rounded-sm backdrop-blur-sm transition-all opacity-0 group-hover:opacity-100"
+                                    className="absolute left-2 lg:left-4 p-2 bg-black/50 border border-white/10 hover:border-accent-cyan text-white rounded-sm backdrop-blur-sm transition-all lg:opacity-0 group-hover:opacity-100"
                                 >
                                     <ChevronLeft className="w-6 h-6" />
                                 </button>
                                 <button
                                     onClick={(e) => { e.stopPropagation(); nextImage(); }}
-                                    className="absolute right-4 p-2 bg-black/50 border border-white/10 hover:border-accent-cyan text-white rounded-sm backdrop-blur-sm transition-all opacity-0 group-hover:opacity-100"
+                                    className="absolute right-2 lg:right-4 p-2 bg-black/50 border border-white/10 hover:border-accent-cyan text-white rounded-sm backdrop-blur-sm transition-all lg:opacity-0 group-hover:opacity-100"
                                 >
                                     <ChevronRight className="w-6 h-6" />
                                 </button>
@@ -97,13 +100,13 @@ export const ProjectDetailsModal: React.FC<ProjectDetailsModalProps> = ({ projec
                     </div>
 
                     {/* Details Sidebar */}
-                    <div className="lg:col-span-4 p-6 lg:p-8 space-y-8 bg-bg-secondary overflow-y-auto">
+                    <div className="lg:col-span-4 p-6 lg:p-8 space-y-6 lg:space-y-8 bg-bg-secondary overflow-y-auto">
                         <div>
                             <h3 className="text-sm font-mono text-accent-cyan uppercase tracking-wider mb-3 flex items-center gap-2">
                                 <span className="w-2 h-2 bg-accent-cyan" />
                                 Mission Overview
                             </h3>
-                            <p className="text-text-secondary leading-relaxed">
+                            <p className="text-text-secondary leading-relaxed text-sm lg:text-base">
                                 {project.description}
                             </p>
                         </div>
@@ -139,6 +142,7 @@ export const ProjectDetailsModal: React.FC<ProjectDetailsModalProps> = ({ projec
                     </div>
                 </div>
             </div>
-        </div>
+        </div>,
+        document.body
     );
 };
